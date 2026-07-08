@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\DB;
 class LaporanBisnis extends Page
 {
 
-    protected static ?string $navigationIcon  = 'heroicon-o-document-chart-bar';
-    protected static ?string $navigationLabel = 'Laporan Bisnis';
-    protected static ?string $navigationGroup = 'Pengaturan Sistem';
-    protected static ?string $title           = 'Laporan Bisnis';
-    protected static ?int $navigationSort     = 99;
+    protected static ?string $navigationIcon        = 'heroicon-o-document-chart-bar';
+    protected static ?string $navigationLabel       = 'Laporan Bisnis';
+    protected static string|\UnitEnum|null $navigationGroup = 'Pengaturan Sistem';
+    protected static ?string $title                 = 'Laporan Bisnis';
+    protected static ?int $navigationSort           = 99;
 
     protected static string $view = 'filament.pages.laporan-bisnis';
 
