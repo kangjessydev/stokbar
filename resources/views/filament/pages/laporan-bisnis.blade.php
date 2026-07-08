@@ -7,6 +7,36 @@
         @media (min-width: 1024px) { .custom-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         
         .icon-sm { width: 1.25rem; height: 1.25rem; flex-shrink: 0; }
+        
+        /* Tailwind Polyfills for Filament Production */
+        .p-4 { padding: 1rem !important; }
+        .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+        .py-8 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+        .px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+        .py-1 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
+        .pb-4 { padding-bottom: 1rem !important; }
+        .mt-1 { margin-top: 0.25rem !important; }
+        .mb-1 { margin-bottom: 0.25rem !important; }
+        .mb-2 { margin-bottom: 0.5rem !important; }
+        .text-2xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+        .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
+        .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
+        .font-bold { font-weight: 700 !important; }
+        .font-semibold { font-weight: 600 !important; }
+        .font-medium { font-weight: 500 !important; }
+        .uppercase { text-transform: uppercase !important; }
+        .whitespace-nowrap { white-space: nowrap !important; }
+        .rounded-lg { border-radius: 0.5rem !important; }
+        .rounded-full { border-radius: 9999px !important; }
+        
+        /* Table Styling */
+        table { border-collapse: collapse; width: 100%; }
+        th { border-bottom: 1px solid rgba(156, 163, 175, 0.2); text-align: left; }
+        td { border-bottom: 1px solid rgba(156, 163, 175, 0.1); }
+        .text-right { text-align: right !important; }
+        .text-center { text-align: center !important; }
+        .text-left { text-align: left !important; }
     </style>
 
     {{-- FILTER BAR --}}
