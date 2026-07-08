@@ -7,18 +7,12 @@ use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Piutang;
 use App\Models\SalesCar;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Pages\Page;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class LaporanBisnis extends Page implements HasForms
+class LaporanBisnis extends Page
 {
-    use InteractsWithForms;
 
     protected static ?string $navigationIcon  = 'heroicon-o-document-chart-bar';
     protected static ?string $navigationLabel = 'Laporan Bisnis';
