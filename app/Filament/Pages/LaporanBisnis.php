@@ -20,7 +20,7 @@ class LaporanBisnis extends Page
     protected static ?string $title                 = 'Laporan Bisnis';
     protected static ?int $navigationSort           = 99;
 
-    protected static string $view = 'filament.pages.laporan-bisnis';
+    protected string $view = 'filament.pages.laporan-bisnis';
 
     // Filter state
     public ?string $periode    = 'bulan_ini';
