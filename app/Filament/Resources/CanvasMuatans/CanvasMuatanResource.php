@@ -10,6 +10,7 @@ use App\Filament\Resources\CanvasMuatans\Tables\CanvasMuatansTable;
 use App\Models\CanvasMuatan;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ class CanvasMuatanResource extends Resource
 {
     protected static ?string $model = CanvasMuatan::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-arrow-up-tray';
-    protected static string|\UnitEnum|null $navigationGroup = 'Distribusi Canvas';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-arrow-up-tray';
+    protected static string | UnitEnum | null $navigationGroup = 'Penjualan & Distribusi';
     protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema

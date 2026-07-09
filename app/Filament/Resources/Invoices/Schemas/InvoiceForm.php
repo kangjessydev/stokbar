@@ -8,6 +8,7 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Support\RawJs;
 
 class InvoiceForm
 {
@@ -71,18 +72,46 @@ class InvoiceForm
                             ->required()
                             ->live()
                             ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                $price = $get('price') ?? 0;
+                                $price = (int) str_replace('.', '', $get('price') ?? '0');
                                 $set('subtotal', $price * $state);
                             }),
                         TextInput::make('price')
                             ->label('Harga (Rp)')
-                            ->numeric()
                             ->prefix('Rp')
+                            ->mask(\Filament\Support\RawJs::make(<<<'JS'
+                        $input ? (function() {
+                            let clean = $input.replace(/\D/g, '');
+                            let len = clean.length;
+                            if (len <= 3) return '9'.repeat(len);
+                            let remainder = len % 3;
+                            let parts = [];
+                            if (remainder > 0) parts.push('9'.repeat(remainder));
+                            let groups = Math.floor(len / 3);
+                            for (let i = 0; i < groups; i++) parts.push('999');
+                            return parts.join('.');
+                        })() : ''
+                    JS
+                    ))
+                            ->stripCharacters('.')
                             ->readOnly(),
                         TextInput::make('subtotal')
                             ->label('Subtotal (Rp)')
-                            ->numeric()
                             ->prefix('Rp')
+                            ->mask(\Filament\Support\RawJs::make(<<<'JS'
+                        $input ? (function() {
+                            let clean = $input.replace(/\D/g, '');
+                            let len = clean.length;
+                            if (len <= 3) return '9'.repeat(len);
+                            let remainder = len % 3;
+                            let parts = [];
+                            if (remainder > 0) parts.push('9'.repeat(remainder));
+                            let groups = Math.floor(len / 3);
+                            for (let i = 0; i < groups; i++) parts.push('999');
+                            return parts.join('.');
+                        })() : ''
+                    JS
+                    ))
+                            ->stripCharacters('.')
                             ->readOnly(),
                     ])
                     ->columns(4)
@@ -93,17 +122,32 @@ class InvoiceForm
                         $items = $get('invoiceItems') ?? [];
                         $total = 0;
                         foreach ($items as $item) {
-                            $total += ($item['subtotal'] ?? 0);
+                            $subtotal = (int) str_replace('.', '', $item['subtotal'] ?? '0');
+                            $total += $subtotal;
                         }
                         $set('total_price', $total);
                     }),
 
                 TextInput::make('total_price')
                     ->label('Total Transaksi (Rp)')
-                    ->numeric()
                     ->prefix('Rp')
+                    ->mask(\Filament\Support\RawJs::make(<<<'JS'
+                        $input ? (function() {
+                            let clean = $input.replace(/\D/g, '');
+                            let len = clean.length;
+                            if (len <= 3) return '9'.repeat(len);
+                            let remainder = len % 3;
+                            let parts = [];
+                            if (remainder > 0) parts.push('9'.repeat(remainder));
+                            let groups = Math.floor(len / 3);
+                            for (let i = 0; i < groups; i++) parts.push('999');
+                            return parts.join('.');
+                        })() : ''
+                    JS
+                    ))
+                    ->stripCharacters('.')
                     ->readOnly()
-                    ->default(0.00),
+                    ->default(0),
             ]);
     }
 }

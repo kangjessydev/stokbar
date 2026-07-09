@@ -10,6 +10,7 @@ use App\Filament\Resources\BahanBakus\Tables\BahanBakusTable;
 use App\Models\BahanBaku;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ class BahanBakuResource extends Resource
 {
     protected static ?string $model = BahanBaku::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cube-transparent';
-    protected static string|\UnitEnum|null $navigationGroup = 'Inventori & Manufaktur';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-cube-transparent';
+    protected static string | UnitEnum | null $navigationGroup = 'Master Data';
     protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'name';

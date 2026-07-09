@@ -10,6 +10,7 @@ use App\Filament\Resources\ResepBoms\Tables\ResepBomsTable;
 use App\Models\ResepBom;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ class ResepBomResource extends Resource
 {
     protected static ?string $model = ResepBom::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static string|\UnitEnum|null $navigationGroup = 'Inventori & Manufaktur';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static string | UnitEnum | null $navigationGroup = 'Master Data';
     protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema

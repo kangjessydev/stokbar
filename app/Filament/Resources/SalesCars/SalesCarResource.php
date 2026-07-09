@@ -10,6 +10,7 @@ use App\Filament\Resources\SalesCars\Tables\SalesCarsTable;
 use App\Models\SalesCar;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ class SalesCarResource extends Resource
 {
     protected static ?string $model = SalesCar::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-truck';
-    protected static string|\UnitEnum|null $navigationGroup = 'Data Master';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-truck';
+    protected static string | UnitEnum | null $navigationGroup = 'Master Data';
     protected static ?int $navigationSort = 3;
 
     protected static ?string $recordTitleAttribute = 'name';

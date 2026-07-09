@@ -12,7 +12,7 @@ class Invoice extends Model
 {
     use Auditable;
 
-    protected $fillable = ['no_invoice', 'customer_id', 'sales_car_id', 'total_price', 'payment_status', 'tanggal'];
+    protected $fillable = ['no_invoice', 'customer_id', 'sales_car_id', 'total_price', 'payment_status', 'tanggal', 'tipe_penjualan'];
 
     protected static function booted()
     {

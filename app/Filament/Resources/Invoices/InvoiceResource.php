@@ -10,6 +10,7 @@ use App\Filament\Resources\Invoices\Tables\InvoicesTable;
 use App\Models\Invoice;
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -18,8 +19,8 @@ class InvoiceResource extends Resource
 {
     protected static ?string $model = Invoice::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-currency-dollar';
-    protected static string|\UnitEnum|null $navigationGroup = 'Transaksi & Keuangan';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-currency-dollar';
+    protected static string | UnitEnum | null $navigationGroup = 'Penjualan & Distribusi';
     protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'no_invoice';

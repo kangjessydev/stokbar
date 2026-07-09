@@ -23,4 +23,21 @@ class Piutang extends Model
     {
         return $this->hasMany(PiutangPayment::class);
     }
+
+    public function recalculatePaidAmount()
+    {
+        $totalCash = $this->piutangPayments()->sum('amount_paid');
+        $totalRetur = 0;
+        
+        foreach ($this->piutangPayments as $payment) {
+            $totalRetur += $payment->barangSisas()->sum('subtotal_kredit');
+        }
+
+        $newPaidAmount = $totalCash + $totalRetur;
+        
+        $this->update([
+            'paid_amount' => $newPaidAmount,
+            'status' => ($newPaidAmount >= $this->amount) ? 'lunas' : 'belum_lunas',
+        ]);
+    }
 }
